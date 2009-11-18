@@ -34,6 +34,15 @@ INSTALLATION
 NOTES
 -----
 
+This extension has only been tested with the Beanstream Gateway. Your payment gateway will need support the following methods:
+
+*	.store - For saving credit card details and returning a payment profile identifier
+*	.purchase - The purchase method needs to accept the payment profile identifier as a parameter.
+
+If the ActiveMerchant implementation for your chosen gateway doesn't support these methods you can include then in the Spree Gateway wrapper, take a look at the Beanstream gateway class in Spree core in (vendor/extensions/payment_gateway/app/models/gateway/beanstream.rb).
+
+
 Subscriptions never expire provided a valid credit card is kept on file.
+
 
 The cron job will notify users of expiring credit cards, and will "expire" subscriptions if no new card details are provided when a subscription renewal is due.
