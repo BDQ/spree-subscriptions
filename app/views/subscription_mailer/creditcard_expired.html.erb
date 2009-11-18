@@ -1,0 +1,8 @@
+Dear Customer,
+
+The credit card on file for your subscription for '<%= @subscription.variant.name %>' has expired.
+
+Your subscription has been put on hold until a new credit card is registered using the link below:
+
+<%= link_to edit_subscription_creditcard_url(@subscription, @subscription.creditcard, :host => "localhost"), edit_subscription_creditcard_url(@subscription, @subscription.creditcard, :host => "localhost")  %>
+

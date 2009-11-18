@@ -1,0 +1,25 @@
+duration_1:
+  name: 1
+  presentation: 1
+  position: 1
+  option_type: duration
+duration_2:
+  name: 2
+  presentation: 2
+  position: 2
+  option_type: duration
+duration_3:
+  name: 3
+  presentation: 3
+  position: 3
+  option_type: duration
+interval_month:
+  name: month
+  presentation: Month
+  position: 1
+  option_type: interval
+interval_year:
+  name: year
+  presentation: Year
+  position: 2
+  option_type: interval

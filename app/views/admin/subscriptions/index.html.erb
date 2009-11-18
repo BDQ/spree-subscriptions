@@ -1,0 +1,90 @@
+
+<% render :partial => 'admin/shared/order_sub_menu' %>
+
+<h1><%= t("listing_subscriptions") %></h1>
+
+<table class="index">
+  <thead>
+    <tr>
+      <th><%= order @search, :by => :created_at,       :as => t("order_date") %></th>
+      <th><%= order @search, :by => :id,               :as => t("subscription_number") %></th>
+      <th><%= order @search, :by => :state,            :as => t("status") %></th>
+      <th><%= order @search, :by => :user_email,       :as => t("customer") %></th>
+      <th><%= order @search, :by => :start_date,       :as => t("start_date") %></th>
+      <th><%= order @search, :by => :end_date,         :as => t("end_date") %></th>
+      <th><%= order @search, :by => :total,            :as => t("total") %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @subscriptions.each do |subscription| %>
+    <tr>
+      <td><%= subscription.created_at.to_date %></td>
+      <td><%= link_to subscription.id, edit_object_url(subscription) %></td>
+      <td><%= t(subscription.state.downcase) %></td>
+      <td><%= subscription.user.email %></td>
+      <td><%= subscription.start_date.nil? ? "-" : subscription.start_date.to_date  %></td>
+      <td><%= subscription.end_date.nil? ? "-" : subscription.end_date.to_date  %></td>
+      <td><%= number_to_currency subscription.variant.price %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= will_paginate(:prev => "&#171; #{t('previous')}", :next => "#{t('next')} &#187;") %>
+        
+<% content_for :sidebar do %>      
+<div class="box">
+  <h3><%= t(:search) %></h3>
+
+  <% form_for @search do |f| %>
+    <label><%= t("order_date") %></label><br />
+    <div class="yui-g date-range-filter">
+      <div class="yui-u sub-field first">
+        <%= f.unobtrusive_date_picker :created_at_after %><br />
+        <label class="sub"><%= t("start") %></label>
+      </div>
+      <div class="yui-u sub-field">
+        <%= f.unobtrusive_date_picker :created_at_before %><br />
+        <label><%= t("stop") %></label>
+      </div>
+    </div>
+    
+    <label><%= t("start_date") %></label><br />
+    <div class="yui-g date-range-filter">
+      <div class="yui-u sub-field first">
+        <%= f.unobtrusive_date_picker :start_date_after %><br />
+        <label class="sub"><%= t("start") %></label>
+      </div>
+      <div class="yui-u sub-field">
+        <%= f.unobtrusive_date_picker :start_date_before %><br />
+        <label><%= t("stop") %></label>
+      </div>
+    </div>
+    
+    <label><%= t("end_date") %></label><br />
+    <div class="yui-g date-range-filter">
+      <div class="yui-u sub-field first">
+        <%= f.unobtrusive_date_picker :end_date_after %><br />
+        <label class="sub"><%= t("start") %></label>
+      </div>
+      <div class="yui-u sub-field">
+        <%= f.unobtrusive_date_picker :end_date_before %><br />
+        <label><%= t("stop") %></label>
+      </div>
+    </div>
+
+    <p><label><%= t("status") %></label><br />
+    <%= f.select :state_equals, Subscription.state_machines[:state].states.collect {|s| [t(s.name), s.value]}, {:include_blank => true} %></p>
+
+    <p><label><%= t 'subscription_number' %></label><br />
+    <%= f.text_field :id_contains, :size=>25 %></p>
+
+    <p>
+      <label><%= t 'email' %></label><br />
+      <%= f.text_field :user_email_contains, :size=>25 %>
+    </p>
+    <p>
+
+    <p><%= button t("search") %></p>
+  <% end %>
+</div>
+<% end %>

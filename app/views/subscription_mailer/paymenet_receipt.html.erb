@@ -1,0 +1,8 @@
+Dear Customer,
+
+The payment for your subscription for '<%= @subscription.variant.name %>' has been processed.
+
+Amount: <%= @subscription.payments.last.amount %>
+
+You're next payment is due on: <%= @subscription.due_on.to_date%>
+

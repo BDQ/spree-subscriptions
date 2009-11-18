@@ -1,0 +1,19 @@
+en-US: 
+  my_subscriptions: My Subscriptions
+  pending: Pending
+  cancelled: Cancelled
+  active: Active
+  expired: Expired
+  expire: Expire
+  subscription_number: "Subscription #"
+  interval: Interval
+  end_date: Until
+  listing_subscriptions: Listing Subscriptions
+  subscriptions: Subscriptions
+  editing_subscription: Editing Subscription
+  subscription: Subscription
+  subscription_details: Subscription Details
+  editing_creditcard: Editing Creditcard Details
+  sub_sure_want_to: "Are you sure you want to {{event}} this subscription?"
+  subscription_updated: Subscription Updated
+  approve: Approve

@@ -1,0 +1,40 @@
+<div id="order">
+  <%= link_to t('back_to_store'), products_path %> 
+
+  <table class="order-summary" width="545">
+    <tbody>
+      <tr>
+        <td><%= t('subscription_number') %></td>
+        <td><%= @subscription.id %></td>
+      </tr>
+      <tr>
+        <td><%= t('status') %></td>
+        <td><%= t(@subscription.state).titleize %></td>
+      </tr>
+      <tr>
+        <td><%= t('interval') %></td>        
+        <td><%= @subscription.duration %> <%= @subscription.interval %></td>
+      </tr>
+      <tr>
+        <td><%= t('start_date') %></td>        
+        <td><%= @subscription.start_date.nil? ? "-" : @subscription.start_date.to_date %></td>
+      </tr>
+      <tr>
+        <td><%= t('end_date') %></td>        
+        <td><%= @subscription.end_date.nil? ? "-" : @subscription.end_date.to_date %></td>
+      </tr>
+      <tr>
+        <td><%= t('total') %></td>        
+        <td><%= number_to_currency @subscription.variant.price %></td>
+      </tr>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <div class='toolbar order-links'>
+    <%= link_to "Update Credit Card", edit_subscription_creditcard_url(@subscription, @subscription.creditcard) %>
+ 
+  </div>
+  <br/>
+  <%= link_to t('back_to_store'), products_path %>
+</div>

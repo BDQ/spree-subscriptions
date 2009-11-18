@@ -1,0 +1,7 @@
+Dear Customer,
+
+The credit card on file for your subscription for '<%= @subscription.variant.name %>' is due to expire within the next <%= @within %>.
+
+We suggest you update you're credit card information at the link below:
+
+<%= link_to edit_subscription_creditcard_url(@subscription, @subscription.creditcard, :host => "localhost"), edit_subscription_creditcard_url(@subscription, @subscription.creditcard, :host => "localhost")  %>
