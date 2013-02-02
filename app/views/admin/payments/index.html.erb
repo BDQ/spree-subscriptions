@@ -1,18 +1,18 @@
 <div class='toolbar'>
   <ul class='actions'>
     <% if @subscription.nil? %>
-			<li>
-      	<%= button_link_to t("new_credit_card_payment"), new_admin_order_creditcard_payment_url(@order), :icon => 'add' %>
-    	</li>
-		<% end %>
+      <li>
+        <%= button_link_to t("new_credit_card_payment"), new_admin_order_creditcard_payment_url(@order), :icon => 'add' %>
+      </li>
+    <% end %>
   </ul>
   <br class='clear' />
 </div>
 
 <% if @subscription.nil? %>
-	<%= render :partial => 'admin/shared/order_tabs', :locals => {:current => "Payments"} %>
+  <%= render :partial => 'admin/shared/order_tabs', :locals => {:current => "Payments"} %>
 <% else %>
-	<%= render :partial => 'admin/shared/subscription_tabs', :locals => {:current => "Payments"} %>
+  <%= render :partial => 'admin/shared/subscription_tabs', :locals => {:current => "Payments"} %>
 <% end %>
 
 <table class="index">
@@ -29,9 +29,9 @@
       <td><%= payment.class.to_s %></td>
       <!-- TODO: don't assume credit card, make it possible to edit other kinds of payments -->
       <td>
-				<% if @subscription.nil? %>
-        	<%= link_to_with_icon 'edit', t('edit'), edit_admin_order_creditcard_payment_url(@order, payment) %>
-				<% end %>
+        <% if @subscription.nil? %>
+          <%= link_to_with_icon 'edit', t('edit'), edit_admin_order_creditcard_payment_url(@order, payment) %>
+        <% end %>
       </td>
     </tr>
   <% end %>
