@@ -39,7 +39,7 @@ This extension has only been tested with the Beanstream Gateway. Your payment ga
 *	.store - For saving credit card details and returning a payment profile identifier
 *	.purchase - The purchase method needs to accept the payment profile identifier as a parameter.
 
-If the ActiveMerchant implementation for your chosen gateway doesn't support these methods you can include then in the Spree Gateway wrapper, take a look at the Beanstream gateway class in Spree core in (vendor/extensions/payment_gateway/app/models/gateway/beanstream.rb).
+If the ActiveMerchant implementation for your chosen gateway doesn't support these methods you can include them in the Spree Gateway wrapper, take a look at the Beanstream gateway class in Spree core in (vendor/extensions/payment_gateway/app/models/gateway/beanstream.rb).
 
 
 Subscriptions never expire provided a valid credit card is kept on file.

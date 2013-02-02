@@ -5,16 +5,16 @@ class CreditcardsController < ApplicationController
   update.success.wants.html { redirect_to subscription_url(@subscription) }
 
   update.after do
-  	if @subscription.state == "expired"
-			@subscription.reactive
-			
-			SubscriptionMailer.deliver_subscription_reactivated(@subscription)
-		end
+    if @subscription.state == "expired"
+      @subscription.reactive
+      
+      SubscriptionMailer.deliver_subscription_reactivated(@subscription)
+    end
   end
 
-	private
-	def load_data
-		@subscription = Subscription.find(params[:subscription_id])
-	end
+  private
+  def load_data
+    @subscription = Subscription.find(params[:subscription_id])
+  end
 
 end

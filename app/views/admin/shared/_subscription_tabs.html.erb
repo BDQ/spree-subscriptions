@@ -6,13 +6,13 @@
   <br clear="clear" />
 
   <ul class="sidebar">
-  	<li <%= ' class="active"' if current == "Subscription Details" %>>
-  	  <%= link_to t("subscription_details"), admin_subscription_url(@subscription) %>
-  	</li>
-  	<li <%= ' class="active"' if current == "Payments" %>>
-  	  <%= link_to t("payments"), admin_subscription_payments_url(@subscription) %>
-  	</li>
-	
+    <li <%= ' class="active"' if current == "Subscription Details" %>>
+      <%= link_to t("subscription_details"), admin_subscription_url(@subscription) %>
+    </li>
+    <li <%= ' class="active"' if current == "Payments" %>>
+      <%= link_to t("payments"), admin_subscription_payments_url(@subscription) %>
+    </li>
+  
   </ul>
 
 <% end %>
